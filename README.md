@@ -1,10 +1,10 @@
-# PokéTools — Pokémon YouTuber & Challenge Runner Toolkit
+# PokeTools — Pokémon YouTuber & Challenge Runner Toolkit
 
-[![Live Demo](https://img.shields.io/badge/Live_App-GitHub_Pages-16a34a?style=for-the-badge&logo=github)](https://yashoss.github.io/pokemon_web_helpers/)
+[![Live Demo](https://img.shields.io/badge/Live_App-GitHub_Pages-16a34a?style=for-the-badge&logo=github)](https://yashoss.github.io/PokeTools/)
 [![Support via PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.biz/famousnamegames)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=for-the-badge)](./LICENSE)
 
-**PokéTools** is a fast, zero-backend web toolkit built to help Pokémon YouTubers, streamers, and challenge runners research and plan video challenges across **Generations I–IX (#0001 Bulbasaur – #1025 Pecharunt)**.
+**PokeTools** is a fast, zero-backend web toolkit built to help Pokémon YouTubers, streamers, and challenge runners research and plan video challenges across **Generations I–IX (#0001 Bulbasaur – #1025 Pecharunt)**.
 
 ---
 
@@ -44,7 +44,7 @@ Click **Filters** on the right to open the expandable settings drawer, which app
 
 ## Support the Creator
 
-If PokéTools helps you plan or record your Pokémon videos or challenges, you can support ongoing development here:
+If PokeTools helps you plan or record your Pokémon videos or challenges, you can support ongoing development here:
 
 - **PayPal**: [paypal.biz/famousnamegames](https://www.paypal.biz/famousnamegames)
 
@@ -56,8 +56,8 @@ No build step or external API keys are required—all Pokémon, move, ability, i
 
 ```bash
 # Clone the repository
-git clone https://github.com/yashoss/pokemon_web_helpers.git
-cd pokemon_web_helpers
+git clone https://github.com/yashoss/PokeTools.git
+cd PokeTools
 
 # Start a local static server on http://localhost:8080
 npm start
