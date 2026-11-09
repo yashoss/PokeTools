@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Free toolkit for Pokémon YouTubers and challenge runners: Pokédex Scrambler (digit permutations) and Lettermon Builder (attacks, abilities, and items by letter).">
+  <meta property="og:title" content="PokéTools — Pokédex Scrambler &amp; Lettermon Builder">
+  <meta property="og:description" content="Fast, clean Pokémon YouTuber challenge helpers: scramble Pokédex numbers into digit permutations or build movesets &amp; item pools from the letters in any Pokémon's name.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <title>PokéTools — Pokédex Scrambler &amp; Lettermon Builder</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Single Compact Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <h1>PokéTools</h1>
+      </div>
+
+      <nav class="page-tabs" aria-label="Tools">
+        <button type="button" class="tab-btn is-active" id="tab-scrambler" data-page="scrambler" aria-current="page">
+          Pokédex Scrambler
+        </button>
+        <button type="button" class="tab-btn" id="tab-lettermon" data-page="lettermon">
+          Lettermon Builder
+        </button>
+      </nav>
+
+      <div class="top-bar-right">
+        <a
+          href="https://www.paypal.biz/famousnamegames"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate-btn"
+          id="top-donate-link"
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Donate</span>
+        </a>
+
+        <button
+          type="button"
+          class="settings-trigger-btn"
+          id="settings-toggle-btn"
+          aria-expanded="false"
+          aria-controls="settings-panel"
+        >
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+            <circle cx="9" cy="6" r="2" fill="currentColor"></circle>
+            <circle cx="15" cy="12" r="2" fill="currentColor"></circle>
+            <circle cx="10" cy="18" r="2" fill="currentColor"></circle>
+          </svg>
+          <span>Filters</span>
+          <span class="filter-badge" id="active-filter-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Right-Edge Quick Handle to Expand Filters Panel -->
+  <button
+    type="button"
+    class="right-edge-handle"
+    id="right-edge-handle"
+    aria-label="Open Filters and Settings Panel"
+    aria-expanded="false"
+    aria-controls="settings-panel"
+  >
+    <span>Filters</span>
+  </button>
+
+  <div class="app-layout">
+    <main class="main-stage" id="main-stage">
+      <!-- =================================================================
+           PAGE 1: POKÉDEX SCRAMBLER
+           ================================================================= -->
+      <section class="tool-page" id="page-scrambler" aria-labelledby="scrambler-title">
+        <div class="search-hero">
+          <h2 id="scrambler-title">Pokédex Scrambler</h2>
+          <p class="search-subtitle">Enter a Pokédex number (e.g. <code>123</code> scrambles <code>0123</code>) or Pokémon name to find all Pokémon from its digit permutations.</p>
+
+          <search class="search-box-wrap">
+            <form id="scrambler-form" action="#" method="GET">
+              <label for="scrambler-input" class="visually-hidden">Pokédex number or Pokémon name</label>
+              <div class="search-bar">
+                <input
+                  type="text"
+                  id="scrambler-input"
+                  name="q"
+                  value="123"
+                  placeholder="Enter Pokédex # (e.g. 123, 258) or Pokémon name..."
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="scrambler-suggestions"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  autocomplete="off"
+                >
+                <button type="submit" class="search-submit-btn">Scramble</button>
+              </div>
+              <ul class="autosuggest-menu" id="scrambler-suggestions" role="listbox" hidden></ul>
+            </form>
+          </search>
+        </div>
+
+        <div class="results-area">
+          <div class="results-meta-bar" id="scrambler-meta" aria-live="polite"></div>
+          <div class="pokemon-grid" id="scrambler-results" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           PAGE 2: LETTERMON BUILDER
+           ================================================================= -->
+      <section class="tool-page" id="page-lettermon" aria-labelledby="lettermon-title" hidden>
+        <div class="search-hero">
+          <h2 id="lettermon-title">Lettermon Builder</h2>
+          <p class="search-subtitle">Enter a Pokémon name (or custom spelling) to see Attacks, Abilities, and Items for each letter.</p>
+
+          <search class="search-box-wrap">
+            <form id="lettermon-form" action="#" method="GET">
+              <label for="lettermon-input" class="visually-hidden">Pokémon name or custom spelling</label>
+              <div class="search-bar">
+                <input
+                  type="text"
+                  id="lettermon-input"
+                  name="name"
+                  value="Garchomp"
+                  placeholder="Type a Pokémon name or custom spelling..."
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="lettermon-suggestions"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  autocomplete="off"
+                >
+                <button type="submit" class="search-submit-btn">Build</button>
+              </div>
+              <ul class="autosuggest-menu" id="lettermon-suggestions" role="listbox" hidden></ul>
+            </form>
+          </search>
+        </div>
+
+        <div class="results-area">
+          <div class="selected-pokemon-bar" id="lettermon-pokemon-bar" hidden></div>
+
+          <div class="lettermon-toolbar">
+            <div class="letter-nav" id="letter-nav-pills" role="toolbar" aria-label="Letters in name"></div>
+            <div class="lettermon-quick-filters">
+              <label class="inline-check" id="learnable-check-wrap">
+                <input type="checkbox" id="lettermon-learnable-only">
+                <span>Learnable by this Pokémon only</span>
+              </label>
+              <label for="lettermon-filter-input" class="visually-hidden">Filter attacks, abilities, or items</label>
+              <input
+                type="search"
+                id="lettermon-filter-input"
+                class="mini-search-input"
+                placeholder="Filter moves / items..."
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+              >
+            </div>
+          </div>
+
+          <div class="letters-stack" id="lettermon-results" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================================================================
+         RIGHT EXPANDABLE SETTINGS PANEL
+         =================================================================== -->
+    <aside class="settings-panel" id="settings-panel" aria-label="Filters and Settings" hidden>
+      <div class="settings-panel-inner">
+        <div class="settings-header">
+          <div>
+            <h2>Filters &amp; Settings</h2>
+            <p class="settings-pool-count" id="settings-pool-readout" aria-live="polite">1,025 Pokémon eligible</p>
+          </div>
+          <button type="button" class="icon-close-btn" id="settings-close-btn" aria-label="Close filters panel">
+            ×
+          </button>
+        </div>
+
+        <search>
+          <form id="settings-form" class="settings-form" action="#" method="GET">
+            <!-- BASIC SETTING 1: Generation -->
+            <fieldset class="setting-group">
+              <legend>
+                <span>Generation</span>
+                <span class="legend-links">
+                  <button type="button" class="text-btn" id="gen-select-all">All</button>
+                  <button type="button" class="text-btn" id="gen-select-none">None</button>
+                </span>
+              </legend>
+              <div class="gen-grid" id="gen-grid">
+                <label class="gen-pill"><input type="checkbox" name="gen" value="1" checked><span>Gen 1</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="2" checked><span>Gen 2</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="3" checked><span>Gen 3</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="4" checked><span>Gen 4</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="5" checked><span>Gen 5</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="6" checked><span>Gen 6</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="7" checked><span>Gen 7</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="8" checked><span>Gen 8</span></label>
+                <label class="gen-pill"><input type="checkbox" name="gen" value="9" checked><span>Gen 9</span></label>
+              </div>
+            </fieldset>
+
+            <!-- BASIC SETTING 2 & 3: Exclude Legendaries & Exclude Mythics -->
+            <fieldset class="setting-group">
+              <legend>Restrictions</legend>
+              <label class="toggle-row" for="exclude-legendaries">
+                <span>Exclude Legendaries</span>
+                <input type="checkbox" id="exclude-legendaries" name="excludeLegendaries">
+              </label>
+              <label class="toggle-row" for="exclude-mythics">
+                <span>Exclude Mythicals</span>
+                <input type="checkbox" id="exclude-mythics" name="excludeMythics">
+              </label>
+            </fieldset>
+
+            <!-- BASIC SETTING 4: Max BST -->
+            <div class="setting-group">
+              <div class="slider-label-row">
+                <label for="max-bst-slider">Max BST</label>
+                <span class="bst-value-badge" id="max-bst-readout">780 (No Limit)</span>
+              </div>
+              <input type="range" id="max-bst-slider" name="maxBst" min="200" max="780" step="10" value="780">
+              <div class="bst-quick-row">
+                <button type="button" class="mini-chip" data-max-bst="400">≤ 400</button>
+                <button type="button" class="mini-chip" data-max-bst="500">≤ 500</button>
+                <button type="button" class="mini-chip" data-max-bst="600">≤ 600</button>
+                <button type="button" class="mini-chip" data-max-bst="780">Any (780)</button>
+              </div>
+            </div>
+
+            <!-- BASIC SETTING 5: Is in Game -->
+            <div class="setting-group">
+              <label class="block-label" for="game-select">Is in Game</label>
+              <select id="game-select" name="game" class="full-select">
+                <option value="all">Any Game (All National Dex)</option>
+                <optgroup label="Switch">
+                  <option value="sv">Scarlet &amp; Violet (+ DLC)</option>
+                  <option value="lza">Legends: Z-A</option>
+                  <option value="pla">Legends: Arceus</option>
+                  <option value="bdsp">Brilliant Diamond &amp; Shining Pearl</option>
+                  <option value="swsh">Sword &amp; Shield (+ DLC)</option>
+                  <option value="lgpe">Let's Go, Pikachu! &amp; Eevee!</option>
+                </optgroup>
+                <optgroup label="3DS &amp; DS">
+                  <option value="sm">Sun, Moon, Ultra Sun &amp; Ultra Moon</option>
+                  <option value="oras">Omega Ruby &amp; Alpha Sapphire</option>
+                  <option value="xy">Pokémon X &amp; Y</option>
+                  <option value="bw">Black, White, Black 2 &amp; White 2</option>
+                  <option value="hgss">HeartGold &amp; SoulSilver</option>
+                  <option value="dppt">Diamond, Pearl &amp; Platinum</option>
+                </optgroup>
+                <optgroup label="GBA &amp; Game Boy">
+                  <option value="rse">Ruby, Sapphire &amp; Emerald</option>
+                  <option value="frlg">FireRed &amp; LeafGreen</option>
+                  <option value="gsc">Gold, Silver &amp; Crystal</option>
+                  <option value="rby">Red, Blue &amp; Yellow</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <!-- ADVANCED SETTINGS (Expandable button at the bottom) -->
+            <details class="advanced-details" id="advanced-settings">
+              <summary class="advanced-toggle-btn">
+                <span>Advanced Settings</span>
+                <span class="adv-chevron" aria-hidden="true">▾</span>
+              </summary>
+              <div class="advanced-body">
+                <!-- Advanced 1: Min BST -->
+                <div class="setting-group">
+                  <div class="slider-label-row">
+                    <label for="min-bst-slider">Min BST</label>
+                    <span class="bst-value-badge" id="min-bst-readout">175</span>
+                  </div>
+                  <input type="range" id="min-bst-slider" name="minBst" min="175" max="700" step="10" value="175">
+                </div>
+
+                <!-- Advanced 2: Types -->
+                <fieldset class="setting-group">
+                  <legend>
+                    <span>Types</span>
+                    <span class="legend-links">
+                      <button type="button" class="text-btn" id="types-select-all">All</button>
+                      <button type="button" class="text-btn" id="types-select-none">None</button>
+                    </span>
+                  </legend>
+                  <div class="types-grid" id="types-grid"></div>
+                </fieldset>
+
+                <!-- Advanced 3: Alternate Forms & National Dex Transfers -->
+                <label class="toggle-row" for="include-alt-forms">
+                  <span>Include Megas &amp; Regional Forms</span>
+                  <input type="checkbox" id="include-alt-forms" name="includeForms">
+                </label>
+
+                <label class="toggle-row" for="allow-nat-dex-game">
+                  <span>Allow Transfer-Only Pokémon in Game</span>
+                  <input type="checkbox" id="allow-nat-dex-game" name="allowNatDexGame">
+                </label>
+
+                <!-- Advanced 4: Scrambler Digit Padding & Info Site -->
+                <div class="setting-group">
+                  <label class="block-label" for="pad-mode-select">Scrambler Digit Format</label>
+                  <select id="pad-mode-select" name="padMode" class="full-select">
+                    <option value="pad4" selected>4-Digit Padded (e.g. 123 → 0123)</option>
+                    <option value="pad3">3-Digit Padded (e.g. 25 → 025)</option>
+                    <option value="exact">Exact Digits Entered</option>
+                  </select>
+                </div>
+
+                <div class="setting-group">
+                  <label class="block-label" for="info-site-select">Pokémon Info Link Site</label>
+                  <select id="info-site-select" name="infoSite" class="full-select">
+                    <option value="pokemondb">PokémonDB</option>
+                    <option value="bulbapedia">Bulbapedia</option>
+                    <option value="serebii">Serebii</option>
+                    <option value="smogon">Smogon</option>
+                  </select>
+                </div>
+              </div>
+            </details>
+
+            <div class="settings-footer">
+              <button type="button" class="reset-btn" id="reset-filters-btn">Reset All Filters</button>
+            </div>
+          </form>
+        </search>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>PokéTools by <strong>Famous Name Games</strong> • Free for Pokémon YouTubers &amp; Challenge Runners</span>
+      <div class="footer-links">
+        <a href="https://www.paypal.biz/famousnamegames" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
+          Support via PayPal ↗
+        </a>
+        <a href="https://ko-fi.com" target="_blank" rel="noopener noreferrer" class="footer-donate-link" id="footer-kofi-link" hidden>
+          Support on Ko-fi ↗
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
