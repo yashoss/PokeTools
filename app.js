@@ -902,14 +902,39 @@ function toggleSettingsPanel(forceOpen) {
 
 function init() {
   // Apply Donation Config
-  const topDonate = document.getElementById('top-donate-link');
-  if (topDonate && DONATION_CONFIG.paypalUrl) {
-    topDonate.href = DONATION_CONFIG.paypalUrl;
+  const footerDonate = document.getElementById('footer-donate-link');
+  if (footerDonate && DONATION_CONFIG.paypalUrl) {
+    footerDonate.href = DONATION_CONFIG.paypalUrl;
   }
   const footerKofi = document.getElementById('footer-kofi-link');
   if (footerKofi && DONATION_CONFIG.kofiUrl) {
     footerKofi.href = DONATION_CONFIG.kofiUrl;
     footerKofi.hidden = false;
+  }
+
+  // How to Use Modal Dialog & Fallback for Invoker Commands / closedby="any"
+  const howToBtn = document.getElementById('how-to-open-btn');
+  const howToDialog = document.getElementById('how-to-dialog');
+  if (howToBtn && howToDialog) {
+    if (!('commandForElement' in HTMLButtonElement.prototype)) {
+      howToBtn.addEventListener('click', () => {
+        if (!howToDialog.open) howToDialog.showModal();
+      });
+    }
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      howToDialog.addEventListener('click', (event) => {
+        if (event.target !== howToDialog) return;
+        const rect = howToDialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        howToDialog.close();
+      });
+    }
   }
 
   // Populate 18 Types in Advanced Settings

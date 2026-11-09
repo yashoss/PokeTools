@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 230" width="600" height="230" role="img" aria-label="Lettermon Builder visual example showing G-A-R-C-H-O-M-P broken down into Attacks, Abilities, and Items for letter G">
+  <defs>
+    <linearGradient id="bg-grad-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="230" rx="14" fill="url(#bg-grad-2)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Top Letter Navigation Pills -->
+  <g transform="translate(24, 18)" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800">
+    <rect x="0" y="0" width="56" height="30" rx="6" fill="#0f172a" stroke="#475569"/>
+    <text x="28" y="19" fill="#94a3b8" text-anchor="middle">All (8)</text>
+
+    <rect x="64" y="0" width="32" height="30" rx="6" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="80" y="19" fill="#ffffff" text-anchor="middle">G</text>
+
+    <rect x="102" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="118" y="19" fill="#f8fafc" text-anchor="middle">A</text>
+
+    <rect x="140" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="156" y="19" fill="#f8fafc" text-anchor="middle">R</text>
+
+    <rect x="178" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="194" y="19" fill="#f8fafc" text-anchor="middle">C</text>
+
+    <rect x="216" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="232" y="19" fill="#f8fafc" text-anchor="middle">H</text>
+
+    <rect x="254" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="270" y="19" fill="#f8fafc" text-anchor="middle">O</text>
+
+    <rect x="292" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="308" y="19" fill="#f8fafc" text-anchor="middle">M</text>
+
+    <rect x="330" y="0" width="32" height="30" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="346" y="19" fill="#f8fafc" text-anchor="middle">P</text>
+
+    <!-- Learnable Checkbox Pill -->
+    <rect x="376" y="0" width="176" height="30" rx="6" fill="#0f172a" stroke="#3b82f6"/>
+    <rect x="386" y="8" width="14" height="14" rx="3" fill="#2563eb"/>
+    <path d="M389 15 l3 3 l6 -6" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <text x="407" y="19" fill="#e2e8f0" font-size="11" font-weight="600">Learnable by Pokémon only</text>
+  </g>
+
+  <!-- Letter Card Container -->
+  <g transform="translate(24, 62)" font-family="system-ui, -apple-system, sans-serif">
+    <rect x="0" y="0" width="552" height="150" rx="10" fill="#0f172a" stroke="#334155"/>
+
+    <!-- Letter Badge + Header -->
+    <rect x="14" y="12" width="28" height="28" rx="6" fill="#2563eb"/>
+    <text x="28" y="31" fill="#ffffff" font-size="15" font-weight="900" text-anchor="middle">G</text>
+    <text x="52" y="30" fill="#f8fafc" font-size="13" font-weight="700">Letter #1 in "GARCHOMP"</text>
+
+    <!-- 3 Category Columns -->
+    <!-- Column 1: Attacks -->
+    <rect x="14" y="48" width="168" height="90" rx="7" fill="#1e293b" stroke="#334155"/>
+    <text x="24" y="66" fill="#94a3b8" font-size="11" font-weight="800">ATTACKS (G)</text>
+    <rect x="22" y="74" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="28" y="90" fill="#f8fafc" font-size="11" font-weight="700">Giga Impact</text>
+    <rect x="124" y="78" width="44" height="15" rx="7" fill="#9ca3af"/>
+    <text x="146" y="89" fill="#ffffff" font-size="8" font-weight="700" text-anchor="middle">NORMAL</text>
+    <rect x="22" y="104" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="28" y="120" fill="#f8fafc" font-size="11" font-weight="700">Guillotine</text>
+
+    <!-- Column 2: Abilities -->
+    <rect x="192" y="48" width="168" height="90" rx="7" fill="#1e293b" stroke="#334155"/>
+    <text x="202" y="66" fill="#94a3b8" font-size="11" font-weight="800">ABILITIES (G)</text>
+    <rect x="200" y="74" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="206" y="90" fill="#f8fafc" font-size="11" font-weight="700">Guts</text>
+    <rect x="200" y="104" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="206" y="120" fill="#f8fafc" font-size="11" font-weight="700">Gooey</text>
+
+    <!-- Column 3: Items -->
+    <rect x="370" y="48" width="168" height="90" rx="7" fill="#1e293b" stroke="#334155"/>
+    <text x="380" y="66" fill="#94a3b8" font-size="11" font-weight="800">ITEMS (G)</text>
+    <rect x="378" y="74" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="384" y="90" fill="#f8fafc" font-size="11" font-weight="700">Gold Bottle Cap</text>
+    <rect x="378" y="104" width="152" height="24" rx="4" fill="#0f172a"/>
+    <text x="384" y="120" fill="#f8fafc" font-size="11" font-weight="700">Grip Claw</text>
+  </g>
+</svg>

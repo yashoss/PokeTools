@@ -207,6 +207,28 @@ button, input, select {
   gap: 0.5rem;
 }
 
+.how-to-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.how-to-btn:hover {
+  color: var(--text-main);
+  background: var(--bg-subtle);
+  border-color: var(--border-color);
+}
+
 .donate-btn {
   display: inline-flex;
   align-items: center;
@@ -1187,4 +1209,103 @@ button, input, select {
 
 .footer-donate-link:hover {
   text-decoration: underline;
+}
+
+/* ==========================================================================
+   How to Use Modal Dialog (<dialog closedby="any">)
+   ========================================================================== */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(3px);
+}
+
+.how-to-dialog {
+  width: min(680px, 92dvw);
+  max-height: 86dvh;
+  margin: auto;
+  padding: 0;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+}
+
+.how-to-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-to-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.35rem 0.9rem;
+  border-block-end: 1px solid var(--border-color);
+}
+
+.how-to-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.how-to-subtitle {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.how-to-body {
+  padding: 1.25rem 1.35rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.how-to-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.how-to-text h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.how-to-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.how-to-text strong {
+  color: var(--text-main);
+}
+
+.how-to-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  display: block;
+}
+
+.how-to-footer {
+  padding: 0.85rem 1.35rem;
+  border-block-start: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  background: var(--bg-subtle);
 }

@@ -4,6 +4,8 @@
 [![Support via PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.biz/famousnamegames)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=for-the-badge)](./LICENSE)
 
+**Live Tool:** **[https://yashoss.github.io/PokeTools/](https://yashoss.github.io/PokeTools/)**
+
 **PokeTools** is a fast, zero-backend web toolkit built to help Pokémon YouTubers, streamers, and challenge runners research and plan video challenges across **Generations I–IX (#0001 Bulbasaur – #1025 Pecharunt)**.
 
 ---

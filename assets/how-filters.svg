@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img" aria-label="Filters and Settings panel overview showing Generation pills, Legendary/Mythical toggles, Max BST slider, Game selector, and Advanced Settings">
+  <defs>
+    <linearGradient id="bg-grad-3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="200" rx="14" fill="url(#bg-grad-3)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Left Column: Basic Filters -->
+  <g transform="translate(24, 20)" font-family="system-ui, -apple-system, sans-serif">
+    <text x="0" y="16" fill="#93c5fd" font-size="12" font-weight="800">BASIC FILTERS (DEFAULT PANEL)</text>
+
+    <rect x="0" y="28" width="260" height="36" rx="7" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="50" fill="#f8fafc" font-size="12" font-weight="700">Generations</text>
+    <rect x="130" y="35" width="54" height="22" rx="4" fill="#1e3a8a" stroke="#3b82f6"/>
+    <text x="157" y="50" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Gen 1–9</text>
+    <rect x="190" y="35" width="58" height="22" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="219" y="50" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">All / None</text>
+
+    <rect x="0" y="72" width="260" height="36" rx="7" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="94" fill="#f8fafc" font-size="12" font-weight="700">Exclude Legendaries &amp; Mythics</text>
+    <rect x="230" y="81" width="18" height="18" rx="4" fill="#2563eb"/>
+    <path d="M234 90 l3 3 l6 -6" stroke="#ffffff" stroke-width="2" fill="none"/>
+
+    <rect x="0" y="116" width="260" height="44" rx="7" fill="#0f172a" stroke="#334155"/>
+    <text x="12" y="135" fill="#f8fafc" font-size="12" font-weight="700">Max BST &amp; Is in Game</text>
+    <text x="12" y="151" fill="#94a3b8" font-size="10" font-weight="600">≤ 500 BST • Scarlet &amp; Violet / Emerald / etc.</text>
+  </g>
+
+  <!-- Right Column: Expandable Advanced Settings -->
+  <g transform="translate(312, 20)" font-family="system-ui, -apple-system, sans-serif">
+    <text x="0" y="16" fill="#93c5fd" font-size="12" font-weight="800">EXPANDABLE ADVANCED SETTINGS</text>
+
+    <rect x="0" y="28" width="264" height="32" rx="7" fill="#1e293b" stroke="#3b82f6"/>
+    <text x="12" y="48" fill="#f8fafc" font-size="12" font-weight="700">Advanced Settings</text>
+    <text x="244" y="48" fill="#93c5fd" font-size="12" font-weight="700">▾</text>
+
+    <rect x="0" y="68" width="264" height="92" rx="7" fill="#0f172a" stroke="#334155"/>
+    <text x="14" y="89" fill="#e2e8f0" font-size="11" font-weight="600">• Min BST Floor &amp; 18 Type Filters</text>
+    <text x="14" y="109" fill="#e2e8f0" font-size="11" font-weight="600">• Include Megas &amp; Regional Forms</text>
+    <text x="14" y="129" fill="#e2e8f0" font-size="11" font-weight="600">• Digit Padding (0123 vs 025 vs Exact)</text>
+    <text x="14" y="149" fill="#e2e8f0" font-size="11" font-weight="600">• Info Link Site (PokémonDB / Bulbapedia / Smogon)</text>
+  </g>
+</svg>

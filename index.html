@@ -31,18 +31,20 @@
       </nav>
 
       <div class="top-bar-right">
-        <a
-          href="https://www.paypal.biz/famousnamegames"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="donate-btn"
-          id="top-donate-link"
+        <button
+          type="button"
+          class="how-to-btn"
+          id="how-to-open-btn"
+          command="show-modal"
+          commandfor="how-to-dialog"
         >
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
           </svg>
-          <span>Donate</span>
-        </a>
+          <span>How to Use</span>
+        </button>
 
         <button
           type="button"
@@ -353,8 +355,17 @@
     <div class="footer-inner">
       <span>PokeTools by <strong>Famous Name Games</strong> • Free for Pokémon YouTubers &amp; Challenge Runners</span>
       <div class="footer-links">
-        <a href="https://www.paypal.biz/famousnamegames" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
-          Support via PayPal ↗
+        <a
+          href="https://www.paypal.biz/famousnamegames"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate-btn"
+          id="footer-donate-link"
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Donate</span>
         </a>
         <a href="https://ko-fi.com" target="_blank" rel="noopener noreferrer" class="footer-donate-link" id="footer-kofi-link" hidden>
           Support on Ko-fi ↗
@@ -362,6 +373,91 @@
       </div>
     </div>
   </footer>
+
+  <!-- =====================================================================
+       HOW TO USE MODAL DIALOG
+       ===================================================================== -->
+  <dialog id="how-to-dialog" class="how-to-dialog" closedby="any" aria-labelledby="how-to-title">
+    <div class="how-to-header">
+      <div>
+        <h2 id="how-to-title">How to Use PokeTools</h2>
+        <p class="how-to-subtitle">Quick visual guide to planning Pokémon video challenges &amp; runs</p>
+      </div>
+      <form method="dialog">
+        <button type="submit" class="icon-close-btn" aria-label="Close How to Use guide" autofocus>×</button>
+      </form>
+    </div>
+
+    <div class="how-to-body">
+      <section class="how-to-section">
+        <div class="how-to-text">
+          <h3>1. Pokédex Scrambler</h3>
+          <p>
+            Enter any Pokédex number or Pokémon name to find every valid Pokémon formed by rearranging its digits.
+            By default, numbers are padded to <strong>4 digits</strong> so Gen 9 Pokémon (#1000–#1025) are included:
+            for example, entering <code>123</code> scrambles <code>0123</code> to reveal
+            <strong>#0123 Scyther</strong>, <strong>#0132 Ditto</strong>, <strong>#0213 Shuckle</strong>,
+            <strong>#0231 Phanpy</strong>, <strong>#0312 Minun</strong>, <strong>#0321 Wailord</strong>, and
+            <strong>#1023 Iron Crown</strong>.
+          </p>
+        </div>
+        <img
+          src="./assets/how-scrambler.svg"
+          alt="Visual diagram showing 123 padded to 0123 and scrambled into Scyther, Ditto, Shuckle, and Iron Crown cards"
+          width="600"
+          height="230"
+          class="how-to-img"
+          loading="lazy"
+        >
+      </section>
+
+      <section class="how-to-section">
+        <div class="how-to-text">
+          <h3>2. Lettermon Builder</h3>
+          <p>
+            Type any Pokémon name (using live autosuggest) or enter a custom spelling/nickname to view all
+            <strong>Attacks</strong>, <strong>Abilities</strong>, and <strong>Items</strong> starting with each letter in the name.
+            Toggle <strong>"Learnable by this Pokémon only"</strong> to restrict moves and abilities to that Pokémon's actual learnset,
+            or click any letter pill in the sticky bar to focus on a single letter.
+          </p>
+        </div>
+        <img
+          src="./assets/how-lettermon.svg"
+          alt="Visual diagram showing Garchomp broken down by letter with Attacks, Abilities, and Items columns for letter G"
+          width="600"
+          height="230"
+          class="how-to-img"
+          loading="lazy"
+        >
+      </section>
+
+      <section class="how-to-section">
+        <div class="how-to-text">
+          <h3>3. Global Filters &amp; Settings</h3>
+          <p>
+            Click <strong>Filters</strong> in the top-right bar (or the side tab on the right edge) to restrict results across both tools
+            by <strong>Generation (1–9)</strong>, <strong>Legendary/Mythical status</strong>, <strong>Max BST</strong>, or
+            <strong>Specific Game Regional Dex</strong>. Expand <strong>Advanced Settings</strong> at the bottom of the drawer for Type filters,
+            Megas &amp; Regional Forms, 3-digit/exact scrambler padding, and your preferred Pokédex reference site.
+          </p>
+        </div>
+        <img
+          src="./assets/how-filters.svg"
+          alt="Visual diagram showing Basic Filters and expandable Advanced Settings in the right-hand drawer"
+          width="600"
+          height="200"
+          class="how-to-img"
+          loading="lazy"
+        >
+      </section>
+    </div>
+
+    <div class="how-to-footer">
+      <form method="dialog">
+        <button type="submit" class="search-submit-btn">Got It</button>
+      </form>
+    </div>
+  </dialog>
 
   <script type="module" src="./app.js"></script>
 </body>
